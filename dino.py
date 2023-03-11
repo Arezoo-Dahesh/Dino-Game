@@ -37,8 +37,16 @@ webbrowser.open('http://chromedino.com/')
 # webbrowser.get('chrome').open_new('http://chromedino.com/')
 
 
-# ------ After 5 seconds, the dino starts jumping (with space key) ------
-time.sleep(5)
+# ------ After 20 seconds, start game ------
+time.sleep(20)
+pyautogui.press('space')
+
+
+time.sleep(1)
 for i in range(1,500):
-    pyautogui.press('space')
+    image = take_screenshot()
+    sumOfColumns = list(np.sum(image, axis=0))
+    AVG = np.mean(sumOfColumns[200:240])
+    if AVG < 23000:
+        pyautogui.press('space')
 
