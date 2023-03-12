@@ -36,17 +36,17 @@ webbrowser.open('http://chromedino.com/')
 #                     webbrowser.BackgroundBrowser("C://Program Files (x86)//Google//Chrome//Application//chrome.exe"))
 # webbrowser.get('chrome').open_new('http://chromedino.com/')
 
-
-# ------ After 20 seconds, start game ------
-time.sleep(20)
+                 
+# ------ After 10 seconds, start game ------
+time.sleep(10)
 pyautogui.press('space')
 
 
 time.sleep(1)
-for i in range(1,500):
+for i in range(1,1200):
     image = take_screenshot()
     sumOfColumns = list(np.sum(image, axis=0))
-    AVG = np.mean(sumOfColumns[200:240])
-    if AVG < 23000:
+    AVG = np.mean(sumOfColumns[200:270])
+    if AVG < 22950:
         pyautogui.press('space')
 
